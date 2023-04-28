@@ -1,6 +1,6 @@
 # Car-Demo
 
-A simple car demo project to help you make your one cars in godot 4.0 .
+A simple car demo project to help you make your own cars in godot 4.0 .
 
 Features:
        A basic car 
