@@ -1,0 +1,8 @@
+[gd_scene load_steps=2 format=3 uid="uid://8sl5gmdd6o6w"]
+
+[ext_resource type="Script" path="res://cars/camera/CameraFollow.gd" id="1_wiw5r"]
+
+[node name="Camera3D" type="Camera3D"]
+top_level = true
+current = true
+script = ExtResource("1_wiw5r")

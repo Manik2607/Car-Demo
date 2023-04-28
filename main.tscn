@@ -1,0 +1,107 @@
+[gd_scene load_steps=9 format=3 uid="uid://bs4xdyx3mglt2"]
+
+[ext_resource type="PackedScene" uid="uid://ci52bv1m15cbs" path="res://cars/YellowCar.tscn" id="1_mdet3"]
+[ext_resource type="Texture2D" uid="uid://cpwiyoo7664vj" path="res://cars/Models/texture_10.png" id="2_4uho4"]
+
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_b7tlo"]
+sky_top_color = Color(0.419608, 0.54902, 0.619608, 1)
+sky_horizon_color = Color(0.654902, 0.679505, 0.688152, 1)
+ground_horizon_color = Color(0.654902, 0.679505, 0.688152, 1)
+
+[sub_resource type="Sky" id="Sky_ye2ye"]
+sky_material = SubResource("ProceduralSkyMaterial_b7tlo")
+
+[sub_resource type="Environment" id="Environment_8dxyn"]
+background_mode = 2
+sky = SubResource("Sky_ye2ye")
+tonemap_mode = 2
+glow_enabled = true
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_2da72"]
+albedo_texture = ExtResource("2_4uho4")
+uv1_triplanar = true
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_1ypv7"]
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_5jeqt"]
+radial_segments = 20
+rings = 1
+
+[node name="Main" type="Node3D"]
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_8dxyn")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(0.80696, 0.183487, -0.56138, 0, 0.950516, 0.310676, 0.590606, -0.250704, 0.767029, 0, 43.5687, 0)
+shadow_enabled = true
+directional_shadow_max_distance = 200.0
+
+[node name="car" parent="." instance=ExtResource("1_mdet3")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.08918, 1.86711, -6.30866)
+
+[node name="CSGCombiner3D" type="CSGCombiner3D" parent="."]
+material_override = SubResource("StandardMaterial3D_2da72")
+use_collision = true
+
+[node name="box" type="CSGBox3D" parent="CSGCombiner3D"]
+transform = Transform3D(1, 0, 0, 0, 2.55802, 0, 0, 0, 1, 5.25674, 1.32642, 0)
+size = Vector3(1, 1, 10.8715)
+
+[node name="box2" type="CSGBox3D" parent="CSGCombiner3D"]
+transform = Transform3D(1, 0, 0, 0, 2.55802, 0, 0, 0, 1, -4.09722, 1.32642, 0)
+size = Vector3(1, 1, 10.8715)
+
+[node name="CSGMesh3D" type="CSGMesh3D" parent="CSGCombiner3D"]
+transform = Transform3D(82.3645, 0, 0, 0, 82.3645, 0, 0, 0, 82.3645, 0, 0, 0)
+mesh = SubResource("PlaneMesh_1ypv7")
+
+[node name="speedBreaker" type="CSGMesh3D" parent="CSGCombiner3D"]
+transform = Transform3D(-7.29339e-05, -4.8781, 0, 0.41788, -0.000851437, 0, 0, 0, 1.39042, 0, 0, 24.1159)
+mesh = SubResource("CylinderMesh_5jeqt")
+
+[node name="speedBreaker2" type="CSGMesh3D" parent="CSGCombiner3D"]
+transform = Transform3D(-7.29339e-05, -4.8781, 0, 0.41788, -0.000851437, 0, 0, 0, 1.39042, 0, 0, 27.7966)
+mesh = SubResource("CylinderMesh_5jeqt")
+
+[node name="speedBreaker3" type="CSGMesh3D" parent="CSGCombiner3D"]
+transform = Transform3D(-7.29339e-05, -4.8781, 0, 0.41788, -0.000851437, 0, 0, 0, 1.39042, 0, 0, 31.6709)
+mesh = SubResource("CylinderMesh_5jeqt")
+
+[node name="speedBreaker4" type="CSGMesh3D" parent="CSGCombiner3D"]
+transform = Transform3D(-7.29339e-05, -4.8781, 0, 0.41788, -0.000851437, 0, 0, 0, 1.39042, 0, 0, 35.184)
+mesh = SubResource("CylinderMesh_5jeqt")
+
+[node name="bumps" type="CSGCombiner3D" parent="CSGCombiner3D"]
+
+[node name="box3" type="CSGBox3D" parent="CSGCombiner3D/bumps"]
+transform = Transform3D(-0.00242604, 0, -0.999997, 0, 2.55802, 0, 0.999997, 0, -0.00242604, 1.59131, 0.169201, -11)
+size = Vector3(0.3, 0.14044, 10.8715)
+
+[node name="box4" type="CSGBox3D" parent="CSGCombiner3D/bumps"]
+transform = Transform3D(-0.00242604, 0, -0.999997, 0, 2.55802, 0, 0.999997, 0, -0.00242604, 1.59131, 0.169201, -12.0818)
+size = Vector3(0.3, 0.14044, 10.8715)
+
+[node name="box5" type="CSGBox3D" parent="CSGCombiner3D/bumps"]
+transform = Transform3D(-0.00242604, 0, -0.999997, 0, 2.55802, 0, 0.999997, 0, -0.00242604, 1.59131, 0.169201, -13.2459)
+size = Vector3(0.3, 0.14044, 10.8715)
+
+[node name="box6" type="CSGBox3D" parent="CSGCombiner3D/bumps"]
+transform = Transform3D(-0.00242604, 0, -0.999997, 0, 2.55802, 0, 0.999997, 0, -0.00242604, 1.59131, 0.169201, -14.3515)
+size = Vector3(0.3, 0.14044, 10.8715)
+
+[node name="box7" type="CSGBox3D" parent="CSGCombiner3D/bumps"]
+transform = Transform3D(-0.00242604, 0, -0.999997, 0, 2.55802, 0, 0.999997, 0, -0.00242604, 1.59131, 0.169201, -15.5533)
+size = Vector3(0.3, 0.14044, 10.8715)
+
+[node name="box8" type="CSGBox3D" parent="CSGCombiner3D/bumps"]
+transform = Transform3D(-0.00242604, 0, -0.999997, 0, 2.55802, 0, 0.999997, 0, -0.00242604, 1.59131, 0.169201, -16.6351)
+size = Vector3(0.3, 0.14044, 10.8715)
+
+[node name="box9" type="CSGBox3D" parent="CSGCombiner3D/bumps"]
+transform = Transform3D(-0.00242604, 0, -0.999997, 0, 2.55802, 0, 0.999997, 0, -0.00242604, 1.59131, 0.169201, -17.7991)
+size = Vector3(0.3, 0.14044, 10.8715)
+
+[node name="box10" type="CSGBox3D" parent="CSGCombiner3D/bumps"]
+transform = Transform3D(-0.00242604, 0, -0.999997, 0, 2.55802, 0, 0.999997, 0, -0.00242604, 1.59131, 0.169201, -18.9048)
+size = Vector3(0.3, 0.14044, 10.8715)
