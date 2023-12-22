@@ -1,6 +1,6 @@
 [gd_scene load_steps=9 format=3 uid="uid://bs4xdyx3mglt2"]
 
-[ext_resource type="PackedScene" uid="uid://ci52bv1m15cbs" path="res://cars/YellowCar.tscn" id="1_mdet3"]
+[ext_resource type="PackedScene" uid="uid://ci52bv1m15cbs" path="res://cars/Doge.tscn" id="1_mdet3"]
 [ext_resource type="Texture2D" uid="uid://cpwiyoo7664vj" path="res://cars/Models/texture_10.png" id="2_4uho4"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_b7tlo"]
@@ -15,6 +15,13 @@ sky_material = SubResource("ProceduralSkyMaterial_b7tlo")
 background_mode = 2
 sky = SubResource("Sky_ye2ye")
 tonemap_mode = 2
+ssr_enabled = true
+ssao_enabled = true
+ssao_radius = 1.5
+ssao_intensity = 0.6
+ssao_power = 32.7849
+ssil_enabled = true
+sdfgi_y_scale = 2
 glow_enabled = true
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_2da72"]
@@ -38,15 +45,16 @@ shadow_enabled = true
 directional_shadow_max_distance = 200.0
 
 [node name="car" parent="." instance=ExtResource("1_mdet3")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.08918, 1.86711, -6.30866)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.564415, 0.184314, -6.30866)
+engine_force_value = 200
 
 [node name="CSGCombiner3D" type="CSGCombiner3D" parent="."]
 material_override = SubResource("StandardMaterial3D_2da72")
 use_collision = true
 
 [node name="box" type="CSGBox3D" parent="CSGCombiner3D"]
-transform = Transform3D(1, 0, 0, 0, 2.55802, 0, 0, 0, 1, 5.25674, 1.32642, 0)
-size = Vector3(1, 1, 10.8715)
+transform = Transform3D(0.925521, -0.968715, 0, 0.378697, 2.3675, 0, 0, 0, 1, 18.2289, -0.192802, 0)
+size = Vector3(7.59973, 0.135742, 10.8715)
 
 [node name="box2" type="CSGBox3D" parent="CSGCombiner3D"]
 transform = Transform3D(1, 0, 0, 0, 2.55802, 0, 0, 0, 1, -4.09722, 1.32642, 0)
@@ -73,6 +81,7 @@ transform = Transform3D(-7.29339e-05, -4.8781, 0, 0.41788, -0.000851437, 0, 0, 0
 mesh = SubResource("CylinderMesh_5jeqt")
 
 [node name="bumps" type="CSGCombiner3D" parent="CSGCombiner3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.24, 0)
 
 [node name="box3" type="CSGBox3D" parent="CSGCombiner3D/bumps"]
 transform = Transform3D(-0.00242604, 0, -0.999997, 0, 2.55802, 0, 0.999997, 0, -0.00242604, 1.59131, 0.169201, -11)

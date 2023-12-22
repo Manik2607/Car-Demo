@@ -1,10 +1,13 @@
-[gd_scene load_steps=4 format=3 uid="uid://duy0dbkychify"]
+[gd_scene load_steps=5 format=3 uid="uid://duy0dbkychify"]
 
 [ext_resource type="Script" path="res://cars/BaseCar.gd" id="1_iqrfq"]
 [ext_resource type="PackedScene" uid="uid://8sl5gmdd6o6w" path="res://cars/camera/camera_3d.tscn" id="2_5wm5h"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_mm2gk"]
-size = Vector3(2.08254, 1.60117, 5.39934)
+size = Vector3(1.9717, 1, 2.08592)
+
+[sub_resource type="LabelSettings" id="LabelSettings_yc8e5"]
+font_size = 32
 
 [node name="car" type="VehicleBody3D"]
 center_of_mass_mode = 1
@@ -12,7 +15,6 @@ center_of_mass = Vector3(0, -0.1, 0)
 script = ExtResource("1_iqrfq")
 STEER_LIMIT = 0.8
 engine_force_value = 100
-Blur_Amount = 0.06
 
 [node name="wheal0" type="VehicleWheel3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.03343, 0.340338, -1.57977)
@@ -61,12 +63,11 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.689432, -0.062412)
 shape = SubResource("BoxShape3D_mm2gk")
 
 [node name="look" type="Node3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.2149, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.2149, 0)
 
 [node name="Camera3D" parent="look" instance=ExtResource("2_5wm5h")]
 transform = Transform3D(1, 0, 0, 0, 0.974347, 0.225053, 0, -0.225053, 0.974347, 0, 1.97324, 6.19962)
-target_distance = 6
-target_height = 3
+target_distance = 101
 
 [node name="Hud" type="CanvasLayer" parent="."]
 layer = 2
@@ -83,3 +84,11 @@ offset_right = 20.0
 grow_horizontal = 2
 grow_vertical = 0
 theme_override_font_sizes/font_size = 50
+
+[node name="Label" type="Label" parent="Hud"]
+offset_right = 40.0
+offset_bottom = 23.0
+text = "Arow keys to drive
+Space to drift and break
+"
+label_settings = SubResource("LabelSettings_yc8e5")

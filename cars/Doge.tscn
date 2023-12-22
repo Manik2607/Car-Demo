@@ -1,0 +1,76 @@
+[gd_scene load_steps=7 format=3 uid="uid://ci52bv1m15cbs"]
+
+[ext_resource type="PackedScene" uid="uid://duy0dbkychify" path="res://cars/BaseCar.tscn" id="1_cfkas"]
+[ext_resource type="PackedScene" uid="uid://benmjny2guowm" path="res://cars/Models/Doge/Wheel.glb" id="2_eoiid"]
+[ext_resource type="PackedScene" uid="uid://bty2rpvw2dh0h" path="res://cars/Models/Doge/doge-body.glb" id="3_om8jj"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_n7qdn"]
+radius = 0.291194
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_xaafv"]
+size = Vector3(0.542114, 1.7092, 1.53265)
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_7kmqy"]
+radius = 0.363529
+
+[node name="car" instance=ExtResource("1_cfkas")]
+STEER_LIMIT = 0.4
+engine_force_value = 50
+
+[node name="wheal0" parent="." index="0"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.997421, 0.340338, -1.50006)
+wheel_radius = 0.37
+wheel_rest_length = 0.095
+suspension_travel = 0.357
+
+[node name="Wheel" parent="wheal0" index="0" instance=ExtResource("2_eoiid")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.142656, 0, 0)
+
+[node name="wheal1" parent="." index="1"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.02668, 0.340338, -1.50006)
+wheel_radius = 0.37
+wheel_rest_length = 0.095
+suspension_travel = 0.357
+
+[node name="Wheel" parent="wheal1" index="0" instance=ExtResource("2_eoiid")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0775136, 0, 0)
+
+[node name="wheal2" parent="." index="2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.997421, 0.286814, 1.26411)
+wheel_radius = 0.37
+wheel_rest_length = 0.095
+suspension_travel = 0.357
+
+[node name="Wheel" parent="wheal2" index="0" instance=ExtResource("2_eoiid")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.142656, 0, 0)
+
+[node name="wheal3" parent="." index="3"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.02668, 0.286814, 1.26411)
+wheel_radius = 0.37
+wheel_rest_length = 0.095
+suspension_travel = 0.357
+
+[node name="Wheel" parent="wheal3" index="0" instance=ExtResource("2_eoiid")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0775136, 0, 0)
+
+[node name="CollisionShape3D" parent="." index="4"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0026385, 0.827398, 0.719927)
+
+[node name="Camera3D" parent="look" index="0"]
+target_distance = 5
+speed = 10.0
+
+[node name="doge-body" parent="." index="7" instance=ExtResource("3_om8jj")]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0, 0, 0)
+
+[node name="CollisionShape3D2" type="CollisionShape3D" parent="." index="8"]
+transform = Transform3D(-4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0, 1, 0, 0.590649, -2.08042)
+shape = SubResource("CapsuleShape3D_n7qdn")
+
+[node name="CollisionShape3D3" type="CollisionShape3D" parent="." index="9"]
+transform = Transform3D(-4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0, 1, -0.000778168, 0.603737, -1.11035)
+shape = SubResource("BoxShape3D_xaafv")
+
+[node name="CollisionShape3D4" type="CollisionShape3D" parent="." index="10"]
+transform = Transform3D(-4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0, 1, -0.000778168, 0.653567, 1.99781)
+shape = SubResource("CapsuleShape3D_7kmqy")
