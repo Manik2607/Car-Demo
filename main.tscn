@@ -1,10 +1,15 @@
-[gd_scene load_steps=21 format=3 uid="uid://yexejxsnlqvn"]
+[gd_scene load_steps=25 format=3 uid="uid://yexejxsnlqvn"]
 
 [ext_resource type="Script" path="res://cars/BaseCar.gd" id="1_6tmgj"]
 [ext_resource type="PackedScene" uid="uid://benmjny2guowm" path="res://cars/Models/Doge/Wheel.glb" id="2_hwo3e"]
 [ext_resource type="PackedScene" uid="uid://8sl5gmdd6o6w" path="res://cars/camera/camera_3d.tscn" id="3_b3hbe"]
 [ext_resource type="PackedScene" uid="uid://bty2rpvw2dh0h" path="res://cars/Models/Doge/doge-body.glb" id="4_mscrk"]
 [ext_resource type="Material" uid="uid://cy4ku1rfnn1xh" path="res://mat.tres" id="5_qji00"]
+[ext_resource type="Script" path="res://Scripts/DiscSpin.gd" id="6_f47m3"]
+[ext_resource type="Material" uid="uid://dkv8ak5k7ijxp" path="res://mat_2.tres" id="7_hkbjl"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_yc8e5"]
+font_size = 32
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_b7tlo"]
 sky_top_color = Color(0.419608, 0.54902, 0.619608, 1)
@@ -26,9 +31,6 @@ ssao_power = 32.7849
 ssil_enabled = true
 sdfgi_y_scale = 2
 glow_enabled = true
-
-[sub_resource type="LabelSettings" id="LabelSettings_yc8e5"]
-font_size = 32
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_mm2gk"]
 size = Vector3(1.9717, 1, 1.35949)
@@ -63,7 +65,40 @@ plane = Plane(0, 0, -1, 0)
 [sub_resource type="WorldBoundaryShape3D" id="WorldBoundaryShape3D_ahskd"]
 plane = Plane(0, 0, 1, 0)
 
+[sub_resource type="CylinderMesh" id="CylinderMesh_arfsf"]
+top_radius = 7.0
+bottom_radius = 7.0
+height = 0.232
+
+[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_2gbua"]
+points = PackedVector3Array(0, -0.116, -7, -0.68657, -0.116, -6.96711, 0, 0.116, -7, 0.6852, -0.116, -6.96711, -0.68657, 0.116, -6.96711, -1.36629, -0.116, -6.8657, 0.6852, 0.116, -6.96711, 1.36492, -0.116, -6.8657, -1.36629, 0.116, -6.8657, -2.0323, -0.116, -6.69988, 1.36492, 0.116, -6.8657, 2.03093, -0.116, -6.69988, -2.0323, 0.116, -6.69988, -2.67913, -0.116, -6.46829, 2.03093, 0.116, -6.69988, 2.67776, -0.116, -6.46829, -2.67913, 0.116, -6.46829, -3.29992, -0.116, -6.17365, 2.67776, 0.116, -6.46829, 3.29855, -0.116, -6.17365, -3.29992, 0.116, -6.17365, -3.88919, -0.116, -5.82146, 3.29855, 0.116, -6.17365, 3.88782, -0.116, -5.82146, -3.88919, 0.116, -5.82146, -4.44146, -0.116, -5.41171, 3.88782, 0.116, -5.82146, 4.44009, -0.116, -5.41171, -4.44146, 0.116, -5.41171, -4.94988, -0.116, -4.94988, 4.44009, 0.116, -5.41171, 4.94851, -0.116, -4.94988, -4.94988, 0.116, -4.94988, -5.41171, -0.116, -4.44146, 4.94851, 0.116, -4.94988, 5.41034, -0.116, -4.44146, -5.41171, 0.116, -4.44146, -5.82146, -0.116, -3.88919, 5.41034, 0.116, -4.44146, 5.82009, -0.116, -3.88919, -5.82146, 0.116, -3.88919, -6.17365, -0.116, -3.29992, 5.82009, 0.116, -3.88919, 6.17228, -0.116, -3.29992, -6.17365, 0.116, -3.29992, -6.46829, -0.116, -2.67913, 6.17228, 0.116, -3.29992, 6.46692, -0.116, -2.67913, -6.46829, 0.116, -2.67913, -6.69988, -0.116, -2.0323, 6.46692, 0.116, -2.67913, 6.69851, -0.116, -2.0323, -6.69988, 0.116, -2.0323, -6.8657, -0.116, -1.36629, 6.69851, 0.116, -2.0323, 6.86433, -0.116, -1.36629, -6.8657, 0.116, -1.36629, -6.96711, -0.116, -0.68657, 6.86433, 0.116, -1.36629, 6.96574, -0.116, -0.68657, -6.96711, 0.116, -0.68657, -7, -0.116, 0, 6.96574, 0.116, -0.68657, 7, -0.116, 0, -7, 0.116, 0, -6.96711, -0.116, 0.6852, 7, 0.116, 0, 6.96574, -0.116, 0.6852, -6.96711, 0.116, 0.6852, -6.8657, -0.116, 1.36492, 6.96574, 0.116, 0.6852, 6.86433, -0.116, 1.36492, -6.8657, 0.116, 1.36492, -6.69988, -0.116, 2.03093, 6.86433, 0.116, 1.36492, 6.69851, -0.116, 2.03093, -6.69988, 0.116, 2.03093, -6.46829, -0.116, 2.67776, 6.69851, 0.116, 2.03093, 6.46692, -0.116, 2.67776, -6.46829, 0.116, 2.67776, -6.17365, -0.116, 3.29855, 6.46692, 0.116, 2.67776, 6.17228, -0.116, 3.29855, -6.17365, 0.116, 3.29855, -5.82146, -0.116, 3.88782, 6.17228, 0.116, 3.29855, 5.82009, -0.116, 3.88782, -5.82146, 0.116, 3.88782, -5.41171, -0.116, 4.44009, 5.82009, 0.116, 3.88782, 5.41034, -0.116, 4.44009, -5.41171, 0.116, 4.44009, -4.94988, -0.116, 4.94851, 5.41034, 0.116, 4.44009, 4.94851, -0.116, 4.94851, -4.94988, 0.116, 4.94851, -4.44146, -0.116, 5.41034, 4.94851, 0.116, 4.94851, 4.44009, -0.116, 5.41034, -4.44146, 0.116, 5.41034, -3.88919, -0.116, 5.82009, 4.44009, 0.116, 5.41034, 3.88782, -0.116, 5.82009, -3.88919, 0.116, 5.82009, -3.29992, -0.116, 6.17228, 3.88782, 0.116, 5.82009, 3.29855, -0.116, 6.17228, -3.29992, 0.116, 6.17228, -2.67913, -0.116, 6.46692, 3.29855, 0.116, 6.17228, 2.67776, -0.116, 6.46692, -2.67913, 0.116, 6.46692, -2.0323, -0.116, 6.69851, 2.67776, 0.116, 6.46692, 2.03093, -0.116, 6.69851, -2.0323, 0.116, 6.69851, -1.36629, -0.116, 6.86433, 2.03093, 0.116, 6.69851, 1.36492, -0.116, 6.86433, -1.36629, 0.116, 6.86433, -0.68657, -0.116, 6.96574, 1.36492, 0.116, 6.86433, 0.6852, -0.116, 6.96574, -0.68657, 0.116, 6.96574, 0, -0.116, 7, 0.6852, 0.116, 6.96574, 0, 0.116, 7)
+
 [node name="Main" type="Node3D"]
+
+[node name="Hud" type="CanvasLayer" parent="."]
+unique_name_in_owner = true
+layer = 2
+
+[node name="speed" type="Label" parent="Hud"]
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -20.0
+offset_top = -23.0
+offset_right = 20.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_font_sizes/font_size = 50
+
+[node name="Label" type="Label" parent="Hud"]
+offset_right = 40.0
+offset_bottom = 23.0
+text = "Arow keys to drive
+Space to drift and break
+"
+label_settings = SubResource("LabelSettings_yc8e5")
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource("Environment_8dxyn")
@@ -74,7 +109,7 @@ shadow_enabled = true
 directional_shadow_max_distance = 200.0
 
 [node name="car" type="VehicleBody3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.564415, 0.184314, -6.30866)
+transform = Transform3D(-0.961194, 0, 0.275872, 0, 1, 0, -0.275872, 0, -0.961194, 5.58211, 0.184314, 4.54346)
 center_of_mass_mode = 1
 center_of_mass = Vector3(0, -0.1, 0)
 script = ExtResource("1_6tmgj")
@@ -134,35 +169,11 @@ suspension_max_force = 10000.0
 [node name="Wheel" parent="car/wheel_rear_right" instance=ExtResource("2_hwo3e")]
 
 [node name="look" type="Node3D" parent="car"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.2149, 0)
+transform = Transform3D(1, 0, 5.96046e-08, 0, 1, 0, -5.96046e-08, 0, 1, 0, 1.74045, 0)
 
 [node name="Camera3D" parent="car/look" instance=ExtResource("3_b3hbe")]
-transform = Transform3D(-0.996593, -0.0185618, 0.0803618, 0, 0.974347, 0.225053, -0.0824776, 0.224286, -0.971027, -1.78994, 1.97324, -15.1703)
+transform = Transform3D(0.914438, 0.0910848, -0.394344, 6.27287e-10, 0.974347, 0.225053, 0.404726, -0.205797, 0.890979, 1.28954, 3.81382, 11.9564)
 speed = 10.0
-
-[node name="Hud" type="CanvasLayer" parent="car"]
-layer = 2
-
-[node name="speed" type="Label" parent="car/Hud"]
-anchors_preset = 7
-anchor_left = 0.5
-anchor_top = 1.0
-anchor_right = 0.5
-anchor_bottom = 1.0
-offset_left = -20.0
-offset_top = -23.0
-offset_right = 20.0
-grow_horizontal = 2
-grow_vertical = 0
-theme_override_font_sizes/font_size = 50
-
-[node name="Label" type="Label" parent="car/Hud"]
-offset_right = 40.0
-offset_bottom = 23.0
-text = "Arow keys to drive
-Space to drift and break
-"
-label_settings = SubResource("LabelSettings_yc8e5")
 
 [node name="doge-body" parent="car" instance=ExtResource("4_mscrk")]
 transform = Transform3D(1, 0, 6.3573e-08, 0, 1, 0, -6.3573e-08, 0, 1, 0, 0, 0)
@@ -191,6 +202,78 @@ use_collision = true
 [node name="box" type="CSGBox3D" parent="CSGCombiner3D"]
 transform = Transform3D(0.925521, -0.968715, 0, 0.378697, 2.3675, 0, 0, 0, 1, 18.2289, -0.192802, 0)
 size = Vector3(7.59973, 0.135742, 10.8715)
+
+[node name="box3" type="CSGBox3D" parent="CSGCombiner3D"]
+transform = Transform3D(0.925521, -0.968715, 0, 0.378697, 2.3675, 0, 0, 0, 1, 18.2289, -0.192802, 13.1821)
+size = Vector3(7.59973, 0.135742, 10.8715)
+
+[node name="box4" type="CSGBox3D" parent="CSGCombiner3D"]
+transform = Transform3D(1, 0, 0, 0, 2.55802, 0, 0, 0, 1, 24.9471, 1.22293, 13.1821)
+size = Vector3(6.49017, 0.135742, 10.8715)
+
+[node name="box5" type="CSGBox3D" parent="CSGCombiner3D"]
+transform = Transform3D(1, 0, 0, 0, 2.55802, 0, 0, 0, 1, 29.0075, 1.22293, 13.1821)
+size = Vector3(0.408172, 0.135742, 10.8715)
+
+[node name="box6" type="CSGBox3D" parent="CSGCombiner3D"]
+transform = Transform3D(1, 0, 0, 0, 2.55802, 0, 0, 0, 1, 30.0075, 1.22293, 13.1821)
+size = Vector3(0.408172, 0.135742, 10.8715)
+
+[node name="box7" type="CSGBox3D" parent="CSGCombiner3D"]
+transform = Transform3D(1, 0, 0, 0, 2.55802, 0, 0, 0, 1, 31.0075, 1.22293, 13.1821)
+size = Vector3(0.408172, 0.135742, 10.8715)
+
+[node name="box8" type="CSGBox3D" parent="CSGCombiner3D"]
+transform = Transform3D(1, 0, 0, 0, 2.55802, 0, 0, 0, 1, 32.0075, 1.22293, 13.1821)
+size = Vector3(0.408172, 0.135742, 10.8715)
+
+[node name="box9" type="CSGBox3D" parent="CSGCombiner3D"]
+transform = Transform3D(1, 0, 0, 0, 2.55802, 0, 0, 0, 1, 33.0075, 1.22293, 13.1821)
+size = Vector3(0.408172, 0.135742, 10.8715)
+
+[node name="box10" type="CSGBox3D" parent="CSGCombiner3D"]
+transform = Transform3D(1, 0, 0, 0, 2.55802, 0, 0, 0, 1, 34.0075, 1.22293, 13.1821)
+size = Vector3(0.408172, 0.135742, 10.8715)
+
+[node name="box11" type="CSGBox3D" parent="CSGCombiner3D"]
+transform = Transform3D(1, 0, 0, 0, 2.55802, 0, 0, 0, 1, 35.0075, 1.22293, 13.1821)
+size = Vector3(0.408172, 0.135742, 10.8715)
+
+[node name="box12" type="CSGBox3D" parent="CSGCombiner3D"]
+transform = Transform3D(1, 0, 0, 0, 2.55802, 0, 0, 0, 1, 36.0075, 1.22293, 13.1821)
+size = Vector3(0.408172, 0.135742, 10.8715)
+
+[node name="box13" type="CSGBox3D" parent="CSGCombiner3D"]
+transform = Transform3D(1, 0, 0, 0, 2.55802, 0, 0, 0, 1, 37.0075, 1.22293, 13.1821)
+size = Vector3(0.408172, 0.135742, 10.8715)
+
+[node name="box14" type="CSGBox3D" parent="CSGCombiner3D"]
+transform = Transform3D(1, 0, 0, 0, 2.55802, 0, 0, 0, 1, 38.0075, 1.22293, 13.1821)
+size = Vector3(0.408172, 0.135742, 10.8715)
+
+[node name="box15" type="CSGBox3D" parent="CSGCombiner3D"]
+transform = Transform3D(1, 0, 0, 0, 2.55802, 0, 0, 0, 1, 39.0075, 1.22293, 13.1821)
+size = Vector3(0.408172, 0.135742, 10.8715)
+
+[node name="box16" type="CSGBox3D" parent="CSGCombiner3D"]
+transform = Transform3D(1, 0, 0, 0, 2.55802, 0, 0, 0, 1, 40.0075, 1.22293, 13.1821)
+size = Vector3(0.408172, 0.135742, 10.8715)
+
+[node name="box17" type="CSGBox3D" parent="CSGCombiner3D"]
+transform = Transform3D(1, 0, 0, 0, 2.55802, 0, 0, 0, 1, 41.0075, 1.22293, 13.1821)
+size = Vector3(0.408172, 0.135742, 10.8715)
+
+[node name="box18" type="CSGBox3D" parent="CSGCombiner3D"]
+transform = Transform3D(1, 0, 0, 0, 2.55802, 0, 0, 0, 1, 42.0075, 1.22293, 13.1821)
+size = Vector3(0.408172, 0.135742, 10.8715)
+
+[node name="box19" type="CSGBox3D" parent="CSGCombiner3D"]
+transform = Transform3D(1, 0, 0, 0, 2.55802, 0, 0, 0, 1, 43.0075, 1.22293, 13.1821)
+size = Vector3(0.408172, 0.135742, 10.8715)
+
+[node name="box20" type="CSGBox3D" parent="CSGCombiner3D"]
+transform = Transform3D(1, 0, 0, 0, 2.55802, 0, 0, 0, 1, 44.0075, 1.22293, 13.1821)
+size = Vector3(0.408172, 0.135742, 10.8715)
 
 [node name="box2" type="CSGBox3D" parent="CSGCombiner3D"]
 transform = Transform3D(1, 0, 0, 0, 2.55802, 0, 0, 0, 1, -4.09722, 1.05125, 0)
@@ -271,3 +354,14 @@ shape = SubResource("WorldBoundaryShape3D_qtn7k")
 [node name="wall Z2" type="CollisionShape3D" parent="StaticBody3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -1000)
 shape = SubResource("WorldBoundaryShape3D_ahskd")
+
+[node name="Disc" type="AnimatableBody3D" parent="."]
+transform = Transform3D(-0.213904, 0, 0.976755, 0, 1, 0, -0.976755, 0, -0.213904, 14.9441, -0.0354118, -20.2879)
+script = ExtResource("6_f47m3")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Disc"]
+material_override = ExtResource("7_hkbjl")
+mesh = SubResource("CylinderMesh_arfsf")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Disc"]
+shape = SubResource("ConvexPolygonShape3D_2gbua")
