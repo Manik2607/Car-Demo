@@ -357,31 +357,31 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -1000)
 shape = SubResource("WorldBoundaryShape3D_ahskd")
 
 [node name="Disc" parent="." instance=ExtResource("6_h0i2b")]
-transform = Transform3D(0.774, 0, 0.63171, 0, 1, 0, -0.63171, 0, 0.774, 14.9441, -0.0354118, -20.2879)
+transform = Transform3D(-0.753011, 0, -0.656629, 0, 1, 0, 0.656629, 0, -0.753011, 14.9441, -0.0354118, -20.2879)
 
 [node name="BobbingPlatform" parent="." instance=ExtResource("7_6bw4t")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 32.456, -0.286496, -21.611)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 32.456, 0.429488, -21.611)
 
 [node name="BobbingPlatform2" parent="." instance=ExtResource("7_6bw4t")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 40.456, -0.157492, -21.611)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 40.456, 0.28967, -21.611)
 
 [node name="BobbingPlatform3" parent="." instance=ExtResource("7_6bw4t")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 48.456, 0.482857, -21.611)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 48.456, -0.333824, -21.611)
 
 [node name="BobbingPlatform4" parent="." instance=ExtResource("7_6bw4t")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 32.456, 0.283998, -29.611)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 32.456, -0.152132, -29.611)
 
 [node name="BobbingPlatform5" parent="." instance=ExtResource("7_6bw4t")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 40.456, 0.283998, -29.611)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 40.456, -0.152132, -29.611)
 
 [node name="BobbingPlatform6" parent="." instance=ExtResource("7_6bw4t")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 48.456, 0.283998, -29.611)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 48.456, -0.152132, -29.611)
 
 [node name="BobbingPlatform7" parent="." instance=ExtResource("7_6bw4t")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 32.456, -0.387249, -37.611)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 32.456, 0.545267, -37.611)
 
 [node name="BobbingPlatform8" parent="." instance=ExtResource("7_6bw4t")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 40.456, -0.387249, -37.611)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 40.456, 0.545267, -37.611)
 
 [node name="BobbingPlatform9" parent="." instance=ExtResource("7_6bw4t")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 48.456, -0.387249, -37.611)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 48.456, 0.545267, -37.611)

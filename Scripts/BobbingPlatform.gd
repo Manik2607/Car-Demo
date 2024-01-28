@@ -1,4 +1,3 @@
-@tool
 extends AnimatableBody3D
 
 
