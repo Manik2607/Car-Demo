@@ -28,7 +28,7 @@ func process_accel(delta):
 			if speed < 30 and speed != 0:
 				engine_force = clamp(engine_force_value * 10 / speed, 0, 300)
 			else:
-				engine_force = engine_force_value		
+				engine_force = engine_force_value
 		return
 	
 	if Input.is_action_pressed("ui_down"):
@@ -45,6 +45,7 @@ func process_accel(delta):
 func process_steer(delta):
 	steer_target = Input.get_action_strength("ui_left") - Input.get_action_strength("ui_right")
 	steer_target *= STEER_LIMIT
+	steering = move_toward(steering, steer_target, STEER_SPEED * delta)
 
 func process_brake(delta):
 	if Input.is_action_pressed("ui_select"):
@@ -54,7 +55,6 @@ func process_brake(delta):
 	else:
 		$wheel_rear_left.wheel_friction_slip=2.9
 		$wheel_rear_right.wheel_friction_slip=2.9
-	steering = move_toward(steering, steer_target, STEER_SPEED * delta)
 
 
 func traction(speed):

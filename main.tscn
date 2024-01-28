@@ -144,10 +144,9 @@ suspension_max_force = 10000.0
 [node name="wheel_rear_left" type="VehicleWheel3D" parent="car"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.812, 0.33315, -1.26208)
 use_as_traction = true
-wheel_roll_influence = 0.5
 wheel_radius = 0.37
 wheel_rest_length = 0.095
-wheel_friction_slip = 3.0
+wheel_friction_slip = 2.9
 suspension_travel = 0.357
 suspension_stiffness = 30.0
 suspension_max_force = 10000.0
@@ -160,7 +159,7 @@ use_as_traction = true
 wheel_roll_influence = 0.5
 wheel_radius = 0.37
 wheel_rest_length = 0.095
-wheel_friction_slip = 3.0
+wheel_friction_slip = 2.9
 suspension_travel = 0.357
 suspension_stiffness = 30.0
 suspension_max_force = 10000.0
@@ -357,7 +356,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -1000)
 shape = SubResource("WorldBoundaryShape3D_ahskd")
 
 [node name="Disc" parent="." instance=ExtResource("6_h0i2b")]
-transform = Transform3D(-0.753011, 0, -0.656629, 0, 1, 0, 0.656629, 0, -0.753011, 14.9441, -0.0354118, -20.2879)
+transform = Transform3D(-0.0807324, 0, 0.998233, 0, 1, 0, -0.998233, 0, -0.0807324, 14.9441, -0.0354118, -20.2879)
 
 [node name="BobbingPlatform" parent="." instance=ExtResource("7_6bw4t")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 32.456, 0.429488, -21.611)
