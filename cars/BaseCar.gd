@@ -17,7 +17,7 @@ func _physics_process(delta):
 	process_accel(delta)
 	process_steer(delta)
 	process_brake(delta)
-	$Hud/speed.text=str(round(speed*3.8))+"  KMPH"
+	%Hud/speed.text=str(round(speed*3.8))+"  KMPH"
 
 func process_accel(delta):	
 	if Input.is_action_pressed("ui_up"):
