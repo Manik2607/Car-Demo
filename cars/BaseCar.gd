@@ -1,5 +1,5 @@
 extends VehicleBody3D
-
+class_name BaseCar
 
 @export var STEER_SPEED = 1.5
 @export var STEER_LIMIT = 0.6
@@ -9,6 +9,8 @@ var steer_target = 0
 var fwd_mps : float
 var speed: float
 
+func _ready():
+	%CarResetter.init()
 
 func _physics_process(delta):
 	speed = linear_velocity.length()*Engine.get_frames_per_second()*delta
