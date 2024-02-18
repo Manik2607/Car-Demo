@@ -1,0 +1,21 @@
+[gd_scene load_steps=5 format=3 uid="uid://bfyl7pbvll6tm"]
+
+[ext_resource type="Script" path="res://Scripts/BobbingPlatform.gd" id="1_hn1sg"]
+[ext_resource type="Material" uid="uid://dkv8ak5k7ijxp" path="res://mat_2.tres" id="2_t2ly0"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_77bfp"]
+size = Vector3(8, 1, 8)
+
+[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_qe4n2"]
+points = PackedVector3Array(-4, -0.5, -4, -4, 0.5, -4, 4, -0.5, -4, -4, -0.5, 4, -4, 0.5, 4, 4, 0.5, -4, 4, -0.5, 4, 4, 0.5, 4)
+
+[node name="BobbingPlatform" type="AnimatableBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 32.456, -0.49, -21.611)
+script = ExtResource("1_hn1sg")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+material_override = ExtResource("2_t2ly0")
+mesh = SubResource("BoxMesh_77bfp")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+shape = SubResource("ConvexPolygonShape3D_qe4n2")
