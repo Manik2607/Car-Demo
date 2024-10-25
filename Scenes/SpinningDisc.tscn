@@ -1,7 +1,7 @@
 [gd_scene load_steps=5 format=3 uid="uid://bfvnfriyibjfl"]
 
 [ext_resource type="Script" path="res://Scripts/DiscSpin.gd" id="1_5imd7"]
-[ext_resource type="Material" uid="uid://dkv8ak5k7ijxp" path="res://mat_2.tres" id="2_fq0tn"]
+[ext_resource type="Material" uid="uid://dkv8ak5k7ijxp" path="res://Scenes/mat_2.tres" id="2_fq0tn"]
 
 [sub_resource type="CylinderMesh" id="CylinderMesh_arfsf"]
 top_radius = 7.0

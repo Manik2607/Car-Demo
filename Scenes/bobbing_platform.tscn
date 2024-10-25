@@ -1,7 +1,7 @@
 [gd_scene load_steps=5 format=3 uid="uid://bfyl7pbvll6tm"]
 
 [ext_resource type="Script" path="res://Scripts/BobbingPlatform.gd" id="1_hn1sg"]
-[ext_resource type="Material" uid="uid://dkv8ak5k7ijxp" path="res://mat_2.tres" id="2_t2ly0"]
+[ext_resource type="Material" uid="uid://dkv8ak5k7ijxp" path="res://Scenes/mat_2.tres" id="2_t2ly0"]
 
 [sub_resource type="BoxMesh" id="BoxMesh_77bfp"]
 size = Vector3(8, 1, 8)

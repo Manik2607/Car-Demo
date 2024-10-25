@@ -4,10 +4,10 @@
 [ext_resource type="PackedScene" uid="uid://benmjny2guowm" path="res://cars/Models/Doge/Wheel.glb" id="2_hwo3e"]
 [ext_resource type="PackedScene" uid="uid://8sl5gmdd6o6w" path="res://cars/camera/camera_3d.tscn" id="3_b3hbe"]
 [ext_resource type="PackedScene" uid="uid://bty2rpvw2dh0h" path="res://cars/Models/Doge/doge-body.glb" id="4_mscrk"]
-[ext_resource type="Material" uid="uid://cy4ku1rfnn1xh" path="res://mat.tres" id="5_qji00"]
+[ext_resource type="Material" uid="uid://cy4ku1rfnn1xh" path="res://Scenes/mat.tres" id="5_qji00"]
 [ext_resource type="PackedScene" uid="uid://bfvnfriyibjfl" path="res://Scenes/SpinningDisc.tscn" id="6_h0i2b"]
 [ext_resource type="PackedScene" uid="uid://bfyl7pbvll6tm" path="res://Scenes/bobbing_platform.tscn" id="7_6bw4t"]
-[ext_resource type="Script" path="res://CarReset.gd" id="8_ayi6b"]
+[ext_resource type="Script" path="res://Scripts/CarReset.gd" id="8_ayi6b"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_yc8e5"]
 font_size = 32
@@ -356,7 +356,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -1000)
 shape = SubResource("WorldBoundaryShape3D_ahskd")
 
 [node name="Disc" parent="." instance=ExtResource("6_h0i2b")]
-transform = Transform3D(-0.0807324, 0, 0.998233, 0, 1, 0, -0.998233, 0, -0.0807324, 14.9441, -0.0354118, -20.2879)
+transform = Transform3D(0.757859, 0, -0.654754, 0, 1, 0, 0.654754, 0, 0.757859, 14.9441, -0.0354118, -20.2879)
 
 [node name="BobbingPlatform" parent="." instance=ExtResource("7_6bw4t")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 32.456, 0.429488, -21.611)
