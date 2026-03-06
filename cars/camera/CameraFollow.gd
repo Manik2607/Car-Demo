@@ -1,6 +1,5 @@
 extends Camera3D
 
-
 @export var target_distance = 5
 @export var target_height = 2
 @export var speed:=20.0
@@ -14,7 +13,7 @@ func _ready():
 func _physics_process(delta):
 	var delta_v = global_transform.origin - follow_this.global_transform.origin
 	var target_pos = global_transform.origin
-	
+
 	# ignore y
 	delta_v.y = 0.0
 	
