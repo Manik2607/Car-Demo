@@ -1,81 +1,87 @@
-[gd_scene load_steps=7 format=3 uid="uid://ci52bv1m15cbs"]
+[gd_scene format=3 uid="uid://fsudhi50npr4"]
 
-[ext_resource type="PackedScene" uid="uid://duy0dbkychify" path="res://cars/BaseCar.tscn" id="1_cfkas"]
-[ext_resource type="PackedScene" uid="uid://benmjny2guowm" path="res://cars/Models/Doge/Wheel.glb" id="2_eoiid"]
-[ext_resource type="PackedScene" uid="uid://bty2rpvw2dh0h" path="res://cars/Models/Doge/doge-body.glb" id="3_om8jj"]
+[ext_resource type="PackedScene" uid="uid://duy0dbkychify" path="res://cars/BaseCar.tscn" id="1_ygadx"]
+[ext_resource type="PackedScene" uid="uid://csfthwadiky68" path="res://cars/Models/Doge/Wheel.glb" id="2_u41r7"]
+[ext_resource type="PackedScene" uid="uid://bjbfab0ljw6au" path="res://cars/Models/Doge/doge-body.glb" id="4_aqss3"]
 
-[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_n7qdn"]
+[sub_resource type="BoxShape3D" id="BoxShape3D_1n2xg"]
+size = Vector3(1.9717, 0.963745, 1.35949)
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_uuhq8"]
 radius = 0.291194
 
-[sub_resource type="BoxShape3D" id="BoxShape3D_xaafv"]
-size = Vector3(0.542114, 1.7092, 1.53265)
+[sub_resource type="BoxShape3D" id="BoxShape3D_uuhq8"]
+size = Vector3(0.542114, 1.7092, 3.63986)
 
-[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_7kmqy"]
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_y15c2"]
 radius = 0.363529
 
-[node name="car" instance=ExtResource("1_cfkas")]
-STEER_LIMIT = 0.4
-engine_force_value = 50
+[node name="Doge" unique_id=90877057 instance=ExtResource("1_ygadx")]
+STEER_LIMIT = 0.5
+engine_force_value = 200
 
-[node name="wheal0" parent="." index="0"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.997421, 0.340338, -1.50006)
+[node name="wheel_front_left" parent="." index="0" unique_id=2138330186]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.812, 0.331356, 1.484)
+use_as_traction = false
 wheel_radius = 0.37
 wheel_rest_length = 0.095
 suspension_travel = 0.357
 
-[node name="Wheel" parent="wheal0" index="0" instance=ExtResource("2_eoiid")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.142656, 0, 0)
+[node name="Wheel" parent="wheel_front_left" index="0" unique_id=1179430258 instance=ExtResource("2_u41r7")]
 
-[node name="wheal1" parent="." index="1"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.02668, 0.340338, -1.50006)
+[node name="wheel_front_right" parent="." index="1" unique_id=843276677]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.842, 0.331356, 1.484)
+use_as_traction = false
 wheel_radius = 0.37
 wheel_rest_length = 0.095
 suspension_travel = 0.357
 
-[node name="Wheel" parent="wheal1" index="0" instance=ExtResource("2_eoiid")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0775136, 0, 0)
+[node name="Wheel" parent="wheel_front_right" index="0" unique_id=1990528103 instance=ExtResource("2_u41r7")]
 
-[node name="wheal2" parent="." index="2"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.997421, 0.286814, 1.26411)
+[node name="wheel_rear_left" parent="." index="2" unique_id=1391281702]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.812, 0.33315, -1.26208)
 wheel_radius = 0.37
 wheel_rest_length = 0.095
+wheel_friction_slip = 2.9
 suspension_travel = 0.357
 
-[node name="Wheel" parent="wheal2" index="0" instance=ExtResource("2_eoiid")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.142656, 0, 0)
+[node name="Wheel" parent="wheel_rear_left" index="0" unique_id=601905313 instance=ExtResource("2_u41r7")]
 
-[node name="wheal3" parent="." index="3"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.02668, 0.286814, 1.26411)
+[node name="wheel_rear_right" parent="." index="3" unique_id=1444115711]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.842, 0.33315, -1.26208)
 wheel_radius = 0.37
 wheel_rest_length = 0.095
+wheel_friction_slip = 2.9
 suspension_travel = 0.357
 
-[node name="Wheel" parent="wheal3" index="0" instance=ExtResource("2_eoiid")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0775136, 0, 0)
+[node name="Wheel" parent="wheel_rear_right" index="0" unique_id=1699127355 instance=ExtResource("2_u41r7")]
 
-[node name="CollisionShape3D" parent="." index="4"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0026385, 0.827398, 0.719927)
+[node name="CollisionShape3D" parent="." index="4" unique_id=412952588]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.00209904, 0.809271, -0.321129)
+shape = SubResource("BoxShape3D_1n2xg")
 
-[node name="Camera3D" parent="look" index="0"]
+[node name="Camera3D" parent="look" parent_id_path=PackedInt32Array(219949801) index="0" unique_id=1109239336]
+transform = Transform3D(-1, 0, -8.742282e-08, 0, 1.0000005, 0, 8.742278e-08, 0, -1.0000005, 0, 1.97324, 6.19962)
 target_distance = 5
 speed = 10.0
 
-[node name="Label" parent="Hud" index="1"]
-text = "Arow keys or WASD to drive
-Space to drift and break
-"
+[node name="speed" parent="Hud" parent_id_path=PackedInt32Array(1078535474) index="0" unique_id=358984817]
+visible = false
 
-[node name="doge-body" parent="." index="7" instance=ExtResource("3_om8jj")]
-transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0, 0, 0)
+[node name="Label" parent="Hud" parent_id_path=PackedInt32Array(1078535474) index="1" unique_id=162282957]
+visible = false
 
-[node name="CollisionShape3D2" type="CollisionShape3D" parent="." index="8"]
-transform = Transform3D(-4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0, 1, 0, 0.590649, -2.08042)
-shape = SubResource("CapsuleShape3D_n7qdn")
+[node name="doge-body" parent="." index="7" unique_id=1918847969 instance=ExtResource("4_aqss3")]
+transform = Transform3D(1, 0, 6.3573e-08, 0, 1, 0, -6.3573e-08, 0, 1, 0, 0, 0)
 
-[node name="CollisionShape3D3" type="CollisionShape3D" parent="." index="9"]
-transform = Transform3D(-4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0, 1, -0.000778168, 0.603737, -1.11035)
-shape = SubResource("BoxShape3D_xaafv")
+[node name="CollisionShapeFront" type="CollisionShape3D" parent="." index="8" unique_id=798132725]
+transform = Transform3D(4.37114e-08, 1, -8.74228e-08, 1, -4.37114e-08, 0, -3.82137e-15, -8.74228e-08, -1, 0.00054127, 0.590649, 2.116)
+shape = SubResource("CapsuleShape3D_uuhq8")
 
-[node name="CollisionShape3D4" type="CollisionShape3D" parent="." index="10"]
-transform = Transform3D(-4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0, 1, -0.000778168, 0.653567, 1.99781)
-shape = SubResource("CapsuleShape3D_7kmqy")
+[node name="CollisionShapeMiddle" type="CollisionShape3D" parent="." index="9" unique_id=157410423]
+transform = Transform3D(4.37114e-08, 1, -8.74228e-08, 1, -4.37114e-08, 0, -3.82137e-15, -8.74228e-08, -1, 0.00131917, 0.603737, 0.0923271)
+shape = SubResource("BoxShape3D_uuhq8")
+
+[node name="CollisionShapeBack" type="CollisionShape3D" parent="." index="10" unique_id=249807931]
+transform = Transform3D(4.37114e-08, 1, -8.74228e-08, 1, -4.37114e-08, 0, -3.82137e-15, -8.74228e-08, -1, 0.00131905, 0.653567, -2.08615)
+shape = SubResource("CapsuleShape3D_y15c2")

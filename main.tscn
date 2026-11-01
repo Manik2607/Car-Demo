@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://yexejxsnlqvn"]
 
-[ext_resource type="PackedScene" uid="uid://cv7acyqnd4jbt" path="res://Scenes/car.tscn" id="2_lquwl"]
+[ext_resource type="PackedScene" uid="uid://fsudhi50npr4" path="res://cars/Doge.tscn" id="2_lquwl"]
 [ext_resource type="Material" uid="uid://cy4ku1rfnn1xh" path="res://Scenes/mat.tres" id="5_qji00"]
 [ext_resource type="PackedScene" uid="uid://bfvnfriyibjfl" path="res://Scenes/SpinningDisc.tscn" id="6_h0i2b"]
 [ext_resource type="PackedScene" uid="uid://bfyl7pbvll6tm" path="res://Scenes/bobbing_platform.tscn" id="7_6bw4t"]
@@ -101,6 +101,10 @@ offset_bottom = -34.0
 grow_vertical = 0
 label_settings = SubResource("LabelSettings_5vw27")
 
+[node name="Doge" parent="." unique_id=90877057 instance=ExtResource("2_lquwl")]
+unique_name_in_owner = true
+transform = Transform3D(-0.9396926, 0, 0.3420202, 0, 1, 0, -0.3420202, 0, -0.9396926, 0, 0, 0)
+
 [node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=593526285]
 environment = SubResource("Environment_8dxyn")
 
@@ -108,10 +112,6 @@ environment = SubResource("Environment_8dxyn")
 transform = Transform3D(0.80696, 0.183487, -0.56138, 0, 0.950516, 0.310676, 0.590606, -0.250704, 0.767029, 0, 43.5687, 0)
 shadow_enabled = true
 directional_shadow_max_distance = 200.0
-
-[node name="car" parent="." unique_id=2054975621 instance=ExtResource("2_lquwl")]
-unique_name_in_owner = true
-transform = Transform3D(-0.961194, 0, 0.2758719, 0, 1, 0, -0.2758719, 0, -0.961194, 5.58211, 0.184314, 4.54346)
 
 [node name="CSGCombiner3D" type="CSGCombiner3D" parent="." unique_id=1242563861]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0149269, 0.111844, 0.0358543)
@@ -277,7 +277,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -1000)
 shape = SubResource("WorldBoundaryShape3D_ahskd")
 
 [node name="Disc" parent="." unique_id=2049355723 instance=ExtResource("6_h0i2b")]
-transform = Transform3D(0.7130144, 0, -0.70114934, 0, 1, 0, 0.70114934, 0, 0.7130144, 14.9441, -0.0354118, -20.2879)
+transform = Transform3D(0.79793805, 0, 0.6027395, 0, 1, 0, -0.6027395, 0, 0.79793805, 14.9441, -0.0354118, -20.2879)
 
 [node name="BobbingPlatform" parent="." unique_id=1805412732 instance=ExtResource("7_6bw4t")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 32.456, 0.429488, -21.611)
