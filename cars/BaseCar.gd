@@ -5,6 +5,7 @@ class_name BaseCar
 @export var STEER_LIMIT = 0.6
 var steer_target = 0
 @export var engine_force_value = 40
+@export var brake_force_value = 0.5
 
 var gearshift = 3
 var gear_multiplicator = 1
@@ -19,7 +20,7 @@ func _ready():
 func _physics_process(delta):
 	speed = linear_velocity.length()*Engine.get_frames_per_second()*delta
 	fwd_mps = transform.basis.x.x
-	traction(speed)
+	traction()
 	process_gear_shift()
 	process_accel(delta)
 	process_steer(delta)
@@ -27,7 +28,7 @@ func _physics_process(delta):
 	%Hud/speed.text=str(round(speed*3.6))+"  KMPH"
 	%Hud/gearshift_label.text="Gear: "+str(gearshift)
 
-func process_accel(delta):
+func process_accel(_delta):
 	if Input.is_action_pressed("forward"):
 		# Increase engine force at low speeds to make the initial acceleration faster.
 		if fwd_mps >= -1:
@@ -68,9 +69,9 @@ func process_steer(delta):
 	steer_target *= STEER_LIMIT
 	steering = move_toward(steering, steer_target, STEER_SPEED * delta)
 
-func process_brake(delta):
+func process_brake(_delta):
 	if Input.is_action_pressed("ui_select"):
-		brake=0.5
+		brake = brake_force_value
 		$wheel_rear_left.wheel_friction_slip=2
 		$wheel_rear_right.wheel_friction_slip=2
 	else:
@@ -78,5 +79,5 @@ func process_brake(delta):
 		$wheel_rear_right.wheel_friction_slip=2.9
 
 
-func traction(speed):
-	apply_central_force(Vector3.DOWN*speed)
+func traction():
+	apply_central_force(Vector3.DOWN * speed)

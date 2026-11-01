@@ -1,11 +1,11 @@
 extends Node
 
-@onready var car : BaseCar = %car
+@onready var car : BaseCar = %Doge
 var init_position : Vector3
 var init_transform : Transform3D
 
 func init():
-	init_transform = car.transform
+	#init_transform = car.transform
 	print("init transform %s " % init_transform)
 
 func _input(event):
